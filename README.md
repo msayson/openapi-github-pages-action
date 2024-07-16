@@ -51,6 +51,7 @@ Add the following steps to your GitHub workflow, replacing the input values:
       ]
     # Parent directory to use for generated API docs HTML
     api-docs-dir: 'YOUR_API_DOCS_FILEPATH'
+    workspace-dir: 'OPTIONAL_RELATIVE_PATH_TO_THE_OPENAPI_SCHEMA'
 ```
 
 ## Scenarios

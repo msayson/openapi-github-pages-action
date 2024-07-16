@@ -12,6 +12,9 @@ inputs:
   api-docs-dir:
     description: Parent directory to use for API docs
     required: true
+  src-dir:
+    description: Optional directory to run the generation script from
+    required: false
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -57,6 +60,8 @@ runs:
         GH_TOKEN: ${{ github.token }}
         # Used to return to caller's repository directory
         WORKSPACE_DIR: ${{ github.workspace }}
+        # Used for multi-file API specs, run the script from this directory to correctly resolve relative paths in references
+        SRC_DIR: ${{ inputs.src-dir }}
     - name: Set up GitHub Pages
       uses: actions/configure-pages@v5
     - name: Upload API docs to GitHub Pages
